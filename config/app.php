@@ -103,7 +103,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'base64:QOfqpo6+PTvzF6skSUcWZplsoMDeO2ULoYx/Ji2mPrA='),
 
     'cipher' => 'AES-256-CBC',
 
@@ -177,6 +177,18 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        | For > 5.0 Facades must be installed by editing conposer.json:
+        |
+        |    "require": {
+        |        ...
+        |        "laravelcollective/html": "~5.0"
+        |    },
+        |
+        | Then add the following provider
+        */
+        'Collective\Html\HtmlServiceProvider',
+
     ],
 
     /*
@@ -225,6 +237,19 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*
+        | For > 5.0 Facades must be installed by editing conposer.json:
+        |
+        |    "require": {
+        |        ...
+        |        "laravelcollective/html": "~5.0"
+        |    },
+        |
+        | Then add the following aliases
+        */
+        'Form' => 'Collective\Html\FormFacade',
+        'Html' => 'Collective\Html\HtmlFacade',
 
     ],
 
